@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Escola.Data/Escola.Data.vbproj" Id="11253127-ed71-4285-8a59-847a5084ac8f" />
+  <Project Path="Escola.Models/Escola.Models.vbproj" Id="9bc2e7f5-d794-46d3-bc5a-195d49bd1ea3" />
+  <Project Path="Escola.Web/Escola.Web.vbproj" Id="e2877050-31d2-4fa6-a915-eab4e28c6090" />
+</Solution>
