@@ -8,7 +8,9 @@
 <!DOCTYPE html>
 
 <html lang="pt-br">
+
 <head runat="server">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -22,6 +24,7 @@
     <title>Escola</title>
 
     <asp:ContentPlaceHolder ID="headContent" runat="server" />
+
 </head>
 
 <body class="bg-light">
@@ -29,7 +32,9 @@
     <form id="form1" runat="server">
 
         <header>
+
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+
                 <div class="container">
 
                     <asp:HyperLink
@@ -39,39 +44,27 @@
                         CssClass="navbar-brand"
                         Text="Escola" />
 
-                    <ul class="navbar-nav ms-auto">
+                    <asp:Panel 
+                        ID="pnlInfoDoUsuario" 
+                        runat="server" 
+                        Visible="false" >
 
-                        <li class="nav-item">
-                            <asp:HyperLink
-                                ID="hlinkHome"
-                                runat="server"
-                                NavigateUrl="~/Default.aspx"
-                                CssClass="nav-link"
-                                Text="Home" />
-                        </li>
+                        <asp:Label 
+                            ID="lblNomeDeUsuario" 
+                            runat="server"
+                            CssClass="navbar-brand" />
 
-                        <li class="nav-item">
-                            <asp:HyperLink
-                                ID="hlinkCadastro"
-                                runat="server"
-                                NavigateUrl="~/Alunos/Cadastro.aspx"
-                                CssClass="nav-link"
-                                Text="Cadastro" />
-                        </li>
+                        <asp:Button 
+                            ID="btnLogout" 
+                            runat="server" 
+                            Text="Sair" />
 
-                        <li class="nav-item">
-                            <asp:HyperLink
-                                ID="hlinkEditar"
-                                runat="server"
-                                NavigateUrl="~/Alunos/Editar.aspx"
-                                CssClass="nav-link"
-                                Text="Editar" />
-                        </li>
-
-                    </ul>
+                    </asp:Panel>
 
                 </div>
+
             </nav>
+
         </header>
 
         <main class="container py-4">
@@ -90,4 +83,5 @@
         crossorigin="anonymous"></script>
 
 </body>
+
 </html>

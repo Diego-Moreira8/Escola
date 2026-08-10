@@ -11,43 +11,25 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class Site1
+Partial Public Class Registrar
 
     '''<summary>
-    '''headContent control.
+    '''pnlErro control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents headContent As Global.System.Web.UI.WebControls.ContentPlaceHolder
+    Protected WithEvents pnlErro As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
-    '''form1 control.
+    '''lblErro control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
-
-    '''<summary>
-    '''hlinkLogo control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents hlinkLogo As Global.System.Web.UI.WebControls.HyperLink
-
-    '''<summary>
-    '''pnlInfoDoUsuario control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents pnlInfoDoUsuario As Global.System.Web.UI.WebControls.Panel
+    Protected WithEvents lblErro As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''lblNomeDeUsuario control.
@@ -59,20 +41,56 @@ Partial Public Class Site1
     Protected WithEvents lblNomeDeUsuario As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''btnLogout control.
+    '''txtNomeDeUsuario control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnLogout As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents txtNomeDeUsuario As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''mainContent control.
+    '''lblSenha control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents mainContent As Global.System.Web.UI.WebControls.ContentPlaceHolder
+    Protected WithEvents lblSenha As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtSenha control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtSenha As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''lblConfirmarSenha control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblConfirmarSenha As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtConfirmarSenha control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtConfirmarSenha As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''btnCriarConta control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnCriarConta As Global.System.Web.UI.WebControls.Button
 End Class

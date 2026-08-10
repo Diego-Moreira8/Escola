@@ -1,7 +1,8 @@
 ﻿Imports Escola.Data
 
 Public Class Cadastro
-    Inherits System.Web.UI.Page
+
+    Inherits PaginaAutenticada
 
     Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
 
@@ -18,7 +19,7 @@ Public Class Cadastro
             ucAlunoFormNovo.DataNascimento
         )
 
-        Response.Redirect("~/Default.aspx")
+        Response.Redirect(Rotas.Home)
 
     End Sub
 

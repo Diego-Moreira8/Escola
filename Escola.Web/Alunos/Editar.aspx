@@ -3,57 +3,31 @@
     AutoEventWireup="false" 
     CodeBehind="Editar.aspx.vb" 
     Inherits="Escola.Web.Editar" 
-    MasterPageFile="~/Site.Master"
-%>
+    MasterPageFile="~/Site.Master" %>
 
 <%@ Register 
     Src="~/UserControls/AlunoForm.ascx" 
     TagPrefix="uc" 
-    TagName="AlunoForm" 
-%>
+    TagName="AlunoForm" %>
 
-<asp:Content
-    runat="server"
-    ContentPlaceHolderID="mainContent"
->
+<asp:Content 
+    runat="server" 
+    ContentPlaceHolderID="mainContent" >
+
     <h1>Editar Aluno</h1>
 
-    <div>
-        <asp:Label 
-            ID="lblAluno" 
-            AssociatedControlID="ddlAlunos" 
-            runat="server" 
-            Text="Aluno para editar"
-        ></asp:Label>
-    
-        <asp:DropDownList
-            ID="ddlAlunos"
-            runat="server" 
-            AutoPostBack="True"
-        ></asp:DropDownList>
-    </div>
+    <uc:AlunoForm 
+        Id="ucAlunoFormEditar" 
+        RunAt="server" />
 
+    <asp:Button 
+        ID="btnSalvarAlteracoes" 
+        runat="server" 
+        Text="Salvar alterações" />
 
-    <asp:Panel 
-        ID="pnlEdicao" 
+    <asp:HyperLink
+        ID="lnkCancelar"
         runat="server"
-    >
-        <uc:AlunoForm Id="ucAlunoFormEditar" RunAt="server"/>
+        Text="Cancelar" />
 
-        <div>
-            <asp:Button 
-                ID="btnSalvarAlteracoes" 
-                runat="server" 
-                Text="Salvar alterações" 
-            />
-        </div>
-
-        <div>
-            <asp:Button 
-                ID="btnApagarAluno" 
-                runat="server" 
-                Text="Apagar aluno" 
-            />
-        </div>
-    </asp:Panel>
 </asp:Content>

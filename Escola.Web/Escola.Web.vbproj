@@ -105,19 +105,46 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Alunos\Apagar.aspx" />
     <Content Include="Alunos\Cadastro.aspx" />
+    <Content Include="Alunos\Default.aspx" />
+    <Content Include="Alunos\Detalhes.aspx" />
     <Content Include="Alunos\Editar.aspx" />
+    <Content Include="Autenticacao\Default.aspx" />
+    <Content Include="Autenticacao\Entrar.aspx" />
+    <Content Include="Autenticacao\Registrar.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="UserControls\AlunoForm.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alunos\Apagar.aspx.designer.vb">
+      <DependentUpon>Apagar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Alunos\Apagar.aspx.vb">
+      <DependentUpon>Apagar.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Alunos\Cadastro.aspx.designer.vb">
       <DependentUpon>Cadastro.aspx</DependentUpon>
     </Compile>
     <Compile Include="Alunos\Cadastro.aspx.vb">
       <DependentUpon>Cadastro.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Alunos\Default.aspx.designer.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Alunos\Default.aspx.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Alunos\Detalhes.aspx.designer.vb">
+      <DependentUpon>Detalhes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Alunos\Detalhes.aspx.vb">
+      <DependentUpon>Detalhes.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Alunos\Editar.aspx.designer.vb">
@@ -126,6 +153,30 @@
     <Compile Include="Alunos\Editar.aspx.vb">
       <DependentUpon>Editar.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Autenticacao\Default.aspx.designer.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Autenticacao\Default.aspx.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Autenticacao\Entrar.aspx.designer.vb">
+      <DependentUpon>Entrar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Autenticacao\Entrar.aspx.vb">
+      <DependentUpon>Entrar.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Autenticacao\Registrar.aspx.designer.vb">
+      <DependentUpon>Registrar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Autenticacao\Registrar.aspx.vb">
+      <DependentUpon>Registrar.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="PaginaBase.vb">
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.vb">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -156,6 +207,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="PaginaAutenticada.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Site.Master.designer.vb">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
@@ -170,6 +224,9 @@
       <DependentUpon>AlunoForm.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Utils\AutenticacaoUtils.vb" />
+    <Compile Include="Utils\Rotas.vb" />
+    <Compile Include="Utils\UrlUtils.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

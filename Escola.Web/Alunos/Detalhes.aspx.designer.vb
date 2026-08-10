@@ -11,68 +11,59 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class Site1
+Partial Public Class Detalhes
 
     '''<summary>
-    '''headContent control.
+    '''lblErro control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents headContent As Global.System.Web.UI.WebControls.ContentPlaceHolder
+    Protected WithEvents lblErro As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''form1 control.
+    '''pnlDetalhes control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
+    Protected WithEvents pnlDetalhes As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
-    '''hlinkLogo control.
+    '''lblNome control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents hlinkLogo As Global.System.Web.UI.WebControls.HyperLink
+    Protected WithEvents lblNome As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''pnlInfoDoUsuario control.
+    '''lblDtNascimento control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents pnlInfoDoUsuario As Global.System.Web.UI.WebControls.Panel
+    Protected WithEvents lblDtNascimento As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''lblNomeDeUsuario control.
+    '''lnkEditar control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblNomeDeUsuario As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lnkEditar As Global.System.Web.UI.WebControls.HyperLink
 
     '''<summary>
-    '''btnLogout control.
+    '''lnkApagar control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnLogout As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''mainContent control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents mainContent As Global.System.Web.UI.WebControls.ContentPlaceHolder
+    Protected WithEvents lnkApagar As Global.System.Web.UI.WebControls.HyperLink
 End Class

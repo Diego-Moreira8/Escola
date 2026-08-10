@@ -23,5 +23,6 @@ Partial Public Class EscolaEntities
     End Sub
 
     Public Overridable Property Aluno() As DbSet(Of Aluno)
+    Public Overridable Property Usuario() As DbSet(Of Usuario)
 
 End Class

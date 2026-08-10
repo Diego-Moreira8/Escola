@@ -11,32 +11,23 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class Editar
+Partial Public Class _Default1
 
     '''<summary>
-    '''ucAlunoFormEditar control.
+    '''hlinkCadastro control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ucAlunoFormEditar As Global.Escola.Web.AlunoForm
+    Protected WithEvents hlinkCadastro As Global.System.Web.UI.WebControls.HyperLink
 
     '''<summary>
-    '''btnSalvarAlteracoes control.
+    '''gdvAlunos control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnSalvarAlteracoes As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''lnkCancelar control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lnkCancelar As Global.System.Web.UI.WebControls.HyperLink
+    Protected WithEvents gdvAlunos As Global.System.Web.UI.WebControls.GridView
 End Class

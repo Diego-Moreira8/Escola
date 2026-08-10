@@ -11,25 +11,25 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class Editar
+Partial Public Class Apagar
 
     '''<summary>
-    '''ucAlunoFormEditar control.
+    '''lblDescricao control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ucAlunoFormEditar As Global.Escola.Web.AlunoForm
+    Protected WithEvents lblDescricao As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''btnSalvarAlteracoes control.
+    '''btnConfirmarRemocao control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnSalvarAlteracoes As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnConfirmarRemocao As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''lnkCancelar control.

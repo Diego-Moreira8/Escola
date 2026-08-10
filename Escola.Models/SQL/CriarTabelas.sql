@@ -1,6 +1,20 @@
-﻿CREATE TABLE Aluno
+﻿CREATE TABLE Usuario
 (
-    Matricula INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    NomeDeUsuario NVARCHAR(50) NOT NULL UNIQUE,
+    Senha NVARCHAR(50) NOT NULL
+);
+
+INSERT INTO Usuario
+VALUES ('admin', '12345678');
+
+SELECT * FROM Usuario;
+
+
+
+CREATE TABLE Aluno
+(
+    Matricula INT PRIMARY KEY IDENTITY(1,1),
     Nome NVARCHAR(100) NOT NULL,
     DataNascimento DATE NOT NULL
 );

@@ -1,7 +1,6 @@
 ﻿Imports Escola.Data
-Imports Escola.Models
 
-Public Class Editar
+Public Class Apagar
 
     Inherits PaginaAutenticada
 
@@ -11,8 +10,6 @@ Public Class Editar
             Return UrlUtils.ObterMatriculaDeURL(Request)
         End Get
     End Property
-
-
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
@@ -24,33 +21,28 @@ Public Class Editar
             Response.Redirect(Rotas.Home)
         End If
 
-        Page.Title = $"Editar Aluno | {Page.Title}"
-
-        CarregarDadosDoAlunoNoForm()
+        CarregarDadosDoAluno()
 
     End Sub
 
-    Protected Sub btnSalvarAlteracoes_Click(sender As Object, e As EventArgs) Handles btnSalvarAlteracoes.Click
+    Protected Sub btnConfirmarRemocao_Click(sender As Object, e As EventArgs) Handles btnConfirmarRemocao.Click
 
-        Repo.Atualizar(
-            Matricula,
-            ucAlunoFormEditar.Nome,
-            ucAlunoFormEditar.DataNascimento
-        )
-
-        Response.Redirect(Rotas.DetalhesAluno(Matricula))
+        Repo.Remover(Matricula)
+        Response.Redirect(Rotas.Home)
 
     End Sub
 
-
-
-    Sub CarregarDadosDoAlunoNoForm()
+    Sub CarregarDadosDoAluno()
 
         Dim aluno = Repo.BuscarPorMatricula(Matricula)
 
-        ucAlunoFormEditar.Nome = aluno.Nome
-        ucAlunoFormEditar.DataNascimento = aluno.DataNascimento
+        If aluno Is Nothing Then
+            Response.Redirect(Rotas.Home)
+            Return
+        End If
 
+        Page.Title = $"Apagar Aluno {aluno.Nome} | {Page.Title}"
+        lblDescricao.Text = $"{aluno.Nome} ({aluno.Matricula})"
         lnkCancelar.NavigateUrl = Rotas.DetalhesAluno(Matricula)
 
     End Sub
