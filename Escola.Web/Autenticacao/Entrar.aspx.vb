@@ -17,19 +17,23 @@ Public Class Entrar
 
         Dim repo As New UsuarioRepository
 
-        If Not repo.Existe(txtNomeDeUsuario.Text) Then
+        Dim usuario = repo.BuscarPorNomeDeUsuario(txtNomeDeUsuario.Text)
+
+        If usuario Is Nothing Then
             pnlErro.Visible = True
             lblErro.Text = "Nome de usuário não encontrado!"
             Return
         End If
 
-        If Not repo.SenhaCoincide(txtNomeDeUsuario.Text, txtSenha.Text) Then
+        If Not repo.SenhaCoincide(usuario.NomeDeUsuario, txtSenha.Text) Then
             pnlErro.Visible = True
             lblErro.Text = "Senha incorreta!"
             Return
         End If
 
-        Session(AutenticacaoUtils.ChaveDaSessao) = txtNomeDeUsuario.Text
+        Dim usuarioLogado = New UsuarioLogado With {.Id = usuario.Id, .NomeDeUsuario = usuario.NomeDeUsuario}
+
+        AutenticacaoUtils.Autenticar(Session, usuarioLogado)
 
         Response.Redirect(Rotas.Home)
 

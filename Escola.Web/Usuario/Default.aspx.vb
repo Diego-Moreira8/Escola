@@ -7,7 +7,7 @@ Public Class _Default3
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
         If Not IsPostBack Then
-            txtNomeDeUsuario.Text = NomeDeUsuario
+            txtNomeDeUsuario.Text = Usuario.NomeDeUsuario
         End If
 
     End Sub
@@ -18,8 +18,17 @@ Public Class _Default3
             Dim novoNomeDeUsuario = txtNomeDeUsuario.Text
             Dim repo As New UsuarioRepository
 
-            repo.AtualizarDados(NomeDeUsuario, novoNomeDeUsuario)
-            Session(AutenticacaoUtils.ChaveDaSessao) = novoNomeDeUsuario
+            repo.AtualizarDados(Usuario.NomeDeUsuario, novoNomeDeUsuario)
+
+            Dim usuarioAtualizado = repo.BuscarPorNomeDeUsuario(novoNomeDeUsuario)
+
+            Dim usuarioLogadoAtualizado = New UsuarioLogado With {
+                .Id = usuarioAtualizado.Id,
+                .NomeDeUsuario = usuarioAtualizado.NomeDeUsuario
+            }
+
+            AutenticacaoUtils.Autenticar(Session, usuarioLogadoAtualizado)
+
             Response.Redirect(Rotas.Usuario)
         Catch ex As UsuarioJaExisteException
             lblResultado.Text = ex.Message

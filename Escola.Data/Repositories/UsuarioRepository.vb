@@ -31,6 +31,16 @@ Public Class UsuarioRepository
 
 #Region "Read"
 
+    Public Function BuscarPorNomeDeUsuario(ByVal nomeDeUsuario As String) As Usuario
+
+        Using db As New EscolaEntities
+            Return (From u In db.Usuario
+                    Where u.NomeDeUsuario = nomeDeUsuario
+                    Select u).FirstOrDefault()
+        End Using
+
+    End Function
+
     Public Function Existe(ByVal nomeDeUsuario As String) As Boolean
 
         Using db As New EscolaEntities

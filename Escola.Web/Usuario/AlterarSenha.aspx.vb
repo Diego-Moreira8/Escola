@@ -16,7 +16,7 @@ Public Class AlterarSenha
         Dim novaSenha = txtNovaSenha.Text
         Dim confirmacaoDeSenha = txtNovaSenhaConfirmacao.Text
 
-        If Not repo.SenhaCoincide(NomeDeUsuario, senhaAtual) Then
+        If Not repo.SenhaCoincide(Usuario.NomeDeUsuario, senhaAtual) Then
             lblResultado.Text = "A senha atual informada está incorreta"
             Return
         End If
@@ -26,7 +26,7 @@ Public Class AlterarSenha
             Return
         End If
 
-        repo.AtualizarSenha(NomeDeUsuario, txtNovaSenha.Text)
+        repo.AtualizarSenha(Usuario.NomeDeUsuario, txtNovaSenha.Text)
 
         Response.Redirect(Rotas.Usuario)
 

@@ -243,6 +243,7 @@
     <Compile Include="Utils\AutenticacaoUtils.vb" />
     <Compile Include="Utils\Rotas.vb" />
     <Compile Include="Utils\UrlUtils.vb" />
+    <Compile Include="Utils\UsuarioLogado.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

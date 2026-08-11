@@ -2,12 +2,31 @@
 
 Public Class AutenticacaoUtils
 
-    Shared ReadOnly Property ChaveDaSessao As String = "Usuario"
+    Private Const ChaveDaSessao As String = "Usuario"
 
-    Shared Function EstaAutenticado(ByVal session As HttpSessionState) As Boolean
+    Public Shared ReadOnly Property Usuario(ByVal session As HttpSessionState) As UsuarioLogado
+        Get
+            Return TryCast(session(ChaveDaSessao), UsuarioLogado)
+        End Get
+    End Property
 
-        Return session(ChaveDaSessao) IsNot Nothing
+    Public Shared Function EstaAutenticado(ByVal session As HttpSessionState) As Boolean
+
+        Return Usuario(session) IsNot Nothing
 
     End Function
+
+    Public Shared Sub Autenticar(ByVal session As HttpSessionState, ByVal usuarioLogado As UsuarioLogado)
+
+        session(ChaveDaSessao) = usuarioLogado
+
+    End Sub
+
+    Public Shared Sub Sair(ByVal session As HttpSessionState)
+
+        session.Clear()
+        session.Abandon()
+
+    End Sub
 
 End Class

@@ -2,9 +2,9 @@
 
     Inherits PaginaBase
 
-    Protected ReadOnly Property NomeDeUsuario As String
+    Protected ReadOnly Property Usuario As UsuarioLogado
         Get
-            Return Session(AutenticacaoUtils.ChaveDaSessao).ToString()
+            Return AutenticacaoUtils.Usuario(Session)
         End Get
     End Property
 
