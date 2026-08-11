@@ -2,6 +2,13 @@
 
     Inherits PaginaBase
 
+    Protected ReadOnly Property NomeDeUsuario As String
+        Get
+            Return Session(AutenticacaoUtils.ChaveDaSessao).ToString()
+        End Get
+    End Property
+
+
     Protected Overrides Sub OnLoad(e As EventArgs)
 
         RedirecionaUsuarioNaoAutenticado()

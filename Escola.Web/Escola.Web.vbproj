@@ -116,6 +116,8 @@
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="UserControls\AlunoForm.ascx" />
+    <Content Include="Usuario\AlterarSenha.aspx" />
+    <Content Include="Usuario\Default.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -223,6 +225,20 @@
     <Compile Include="UserControls\AlunoForm.ascx.vb">
       <DependentUpon>AlunoForm.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuario\AlterarSenha.aspx.designer.vb">
+      <DependentUpon>AlterarSenha.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\AlterarSenha.aspx.vb">
+      <DependentUpon>AlterarSenha.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Usuario\Default.aspx.designer.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\Default.aspx.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Utils\AutenticacaoUtils.vb" />
     <Compile Include="Utils\Rotas.vb" />

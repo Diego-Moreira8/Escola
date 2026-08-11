@@ -33,7 +33,8 @@
 
         <asp:TextBox
             ID="txtNomeDeUsuario"
-            runat="server" />
+            runat="server"
+            autofocus="true" />
 
     </div>
     

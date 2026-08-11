@@ -69,9 +69,43 @@ Public Class UsuarioRepository
 
 #Region "Update"
 
-    Public Sub Atualizar()
+    Public Sub AtualizarDados(ByVal nomeDeUsuarioAtual As String, ByVal novoNomeDeUsuario As String)
 
-        Throw New NotImplementedException
+        If (novoNomeDeUsuario = nomeDeUsuarioAtual) Then
+            Return
+        End If
+
+        If Existe(novoNomeDeUsuario) Then
+            Throw New UsuarioJaExisteException
+        End If
+
+        Using db As New EscolaEntities
+            Dim usuario = (From u In db.Usuario
+                           Where u.NomeDeUsuario = nomeDeUsuarioAtual
+                           Select u).First()
+
+            usuario.NomeDeUsuario = novoNomeDeUsuario
+
+            db.SaveChanges()
+        End Using
+
+    End Sub
+
+    Public Sub AtualizarSenha(ByVal nomeDeUsuario As String, ByVal novaSenha As String)
+
+        Using db As New EscolaEntities
+            Dim usuario = (From u In db.Usuario
+                           Where u.NomeDeUsuario = nomeDeUsuario
+                           Select u).First()
+
+            Dim saltSenha = CriarSalt()
+            Dim hashSenha = CriarHash(novaSenha, saltSenha)
+
+            usuario.SaltSenha = saltSenha
+            usuario.HashSenha = hashSenha
+
+            db.SaveChanges()
+        End Using
 
     End Sub
 

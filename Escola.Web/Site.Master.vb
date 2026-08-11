@@ -6,7 +6,7 @@
 
         If AutenticacaoUtils.EstaAutenticado(Session) Then
             pnlInfoDoUsuario.Visible = True
-            lblNomeDeUsuario.Text = Session(AutenticacaoUtils.ChaveDaSessao).ToString()
+            lnkNomeDeUsuario.Text = Session(AutenticacaoUtils.ChaveDaSessao).ToString()
         End If
 
     End Sub

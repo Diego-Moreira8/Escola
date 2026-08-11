@@ -49,8 +49,9 @@
                         runat="server" 
                         Visible="false" >
 
-                        <asp:Label 
-                            ID="lblNomeDeUsuario" 
+                        <asp:HyperLink 
+                            ID="lnkNomeDeUsuario" 
+                            NavigateUrl="~/Usuario/Default.aspx"
                             runat="server"
                             CssClass="navbar-brand" />
 

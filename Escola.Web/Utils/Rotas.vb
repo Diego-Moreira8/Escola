@@ -12,6 +12,12 @@
         End Get
     End Property
 
+    Public Shared ReadOnly Property Usuario As String
+        Get
+            Return "~/Usuario/Default.aspx"
+        End Get
+    End Property
+
     Public Shared ReadOnly Property Registrar As String
         Get
             Return "~/Autenticacao/Registrar.aspx"
