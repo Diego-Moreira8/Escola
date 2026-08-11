@@ -19,7 +19,8 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NomeDeUsuario" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Senha" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="HashSenha" Type="varbinary" MaxLength="64" Nullable="false" />
+          <Property Name="SaltSenha" Type="varbinary" MaxLength="32" Nullable="false" />
         </EntityType>
         <EntityContainer Name="EscolaModelStoreContainer">
           <EntitySet Name="Aluno" EntityType="Self.Aluno" Schema="dbo" store:Type="Tables" />
@@ -47,7 +48,8 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NomeDeUsuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Senha" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HashSenha" Type="Binary" Nullable="false" MaxLength="64" FixedLength="false" />
+          <Property Name="SaltSenha" Type="Binary" Nullable="false" MaxLength="32" FixedLength="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -67,7 +69,8 @@
           <EntitySetMapping Name="Usuario">
             <EntityTypeMapping TypeName="EscolaModel.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
-                <ScalarProperty Name="Senha" ColumnName="Senha" />
+                <ScalarProperty Name="SaltSenha" ColumnName="SaltSenha" />
+                <ScalarProperty Name="HashSenha" ColumnName="HashSenha" />
                 <ScalarProperty Name="NomeDeUsuario" ColumnName="NomeDeUsuario" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

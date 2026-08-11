@@ -13,6 +13,7 @@ Imports System.Collections.Generic
 Partial Public Class Usuario
     Public Property Id As Integer
     Public Property NomeDeUsuario As String
-    Public Property Senha As String
+    Public Property HashSenha As Byte()
+    Public Property SaltSenha As Byte()
 
 End Class

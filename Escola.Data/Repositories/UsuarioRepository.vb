@@ -1,14 +1,23 @@
 ﻿Imports Escola.Models
+Imports System.Security.Cryptography
 
 Public Class UsuarioRepository
+
+    Private Const SaltSize As Integer = 32
+    Private Const HashSize As Integer = 64
+    Private Const Iterations As Integer = 100_000
 
 #Region "Create"
 
     Public Sub Criar(ByVal nomeDeUsuario As String, ByVal senha As String)
 
+        Dim saltSenha = CriarSalt()
+        Dim hashSenha = CriarHash(senha, saltSenha)
+
         Dim novoUsuario As New Usuario With {
             .NomeDeUsuario = nomeDeUsuario,
-            .Senha = senha
+            .SaltSenha = saltSenha,
+            .HashSenha = hashSenha
         }
 
         Using db As New EscolaEntities
@@ -39,9 +48,17 @@ Public Class UsuarioRepository
                 Return Nothing
             End If
 
-            If senha <> usuario.Senha Then
+            Dim hashSenhaInformada = CriarHash(senha, usuario.SaltSenha)
+
+            If hashSenhaInformada.Length <> usuario.HashSenha.Length Then
                 Return False
             End If
+
+            For i = 0 To hashSenhaInformada.Length - 1
+                If hashSenhaInformada(i) <> usuario.HashSenha(i) Then
+                    Return False
+                End If
+            Next
 
             Return True
         End Using
@@ -67,6 +84,30 @@ Public Class UsuarioRepository
         Throw New NotImplementedException
 
     End Sub
+
+#End Region
+
+#Region "Funções de Apoio"
+
+    Private Function CriarHash(ByVal senha As String, ByVal salt As Byte()) As Byte()
+
+        Using pbkdf2 As New Rfc2898DeriveBytes(senha, salt, Iterations)
+            Return pbkdf2.GetBytes(HashSize)
+        End Using
+
+    End Function
+
+    Private Function CriarSalt() As Byte()
+
+        Dim salt(SaltSize - 1) As Byte
+
+        Using rng = RandomNumberGenerator.Create()
+            rng.GetBytes(salt)
+        End Using
+
+        Return salt
+
+    End Function
 
 #End Region
 

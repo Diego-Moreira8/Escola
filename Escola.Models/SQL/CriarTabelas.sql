@@ -1,12 +1,12 @@
-﻿CREATE TABLE Usuario
+﻿--DROP TABLE Usuario;
+
+CREATE TABLE Usuario
 (
     Id INT PRIMARY KEY IDENTITY(1,1),
     NomeDeUsuario NVARCHAR(50) NOT NULL UNIQUE,
-    Senha NVARCHAR(50) NOT NULL
+    HashSenha VARBINARY(64) NOT NULL,
+    SaltSenha VARBINARY(32) NOT NULL
 );
-
-INSERT INTO Usuario
-VALUES ('admin', '12345678');
 
 SELECT * FROM Usuario;
 
