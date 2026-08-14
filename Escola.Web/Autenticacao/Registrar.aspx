@@ -11,17 +11,10 @@
 
     <h1>Registrar</h1>
 
-    <asp:Panel 
-        ID="pnlErro"
+    <asp:ValidationSummary
+        ID="valResumo"
         runat="server"
-        Visible="false">
-
-        <asp:Label
-            ID="lblErro"
-            runat="server" />
-
-    </asp:Panel>
-
+        CssClass="alert alert-danger" />
 
     <div>
 
@@ -34,6 +27,34 @@
         <asp:TextBox
             ID="txtNomeDeUsuario"
             runat="server" />
+
+        <asp:RequiredFieldValidator
+            ID="valNomeDeUsuarioObrigatorio"
+            runat="server"
+            ControlToValidate="txtNomeDeUsuario"
+            ErrorMessage="Informe um nome de usuário."
+            Text="*"
+            Display="Static"
+            CssClass="text-danger" />
+
+        <asp:RegularExpressionValidator
+            ID="valNomeDeUsuarioFormato"
+            runat="server"
+            ControlToValidate="txtNomeDeUsuario"
+            ValidationExpression="^[a-z.]{3,50}$"
+            ErrorMessage="O nome de usuário deve conter apenas letras e pontos e ter entre 3 e 50 caracteres."
+            Text="*"
+            Display="Dynamic"
+            CssClass="text-danger" />
+
+        <asp:CustomValidator
+            ID="valNomeDeUsuarioExistente"
+            runat="server"
+            ControlToValidate="txtNomeDeUsuario"
+            ErrorMessage="Nome de usuário já existe."
+            Text="*"
+            Display="Dynamic"
+            CssClass="text-danger" />
 
     </div>
 
@@ -50,6 +71,25 @@
             runat="server"
             TextMode="Password" />
 
+        <asp:RequiredFieldValidator
+            ID="valSenhaObrigatoria"
+            runat="server"
+            ControlToValidate="txtSenha"
+            ErrorMessage="O campo Senha é obrigatório."
+            Text="*"
+            Display="Static"
+            CssClass="text-danger" />
+
+        <asp:RegularExpressionValidator
+            ID="valSenhaFormato"
+            runat="server"
+            ControlToValidate="txtSenha"
+            ValidationExpression="^.{8,50}$"
+            ErrorMessage="A senha precisa ter entre 8 e 50 caracteres."
+            Text="*"
+            Display="Dynamic"
+            CssClass="text-danger" />
+
     </div>
 
     <div>
@@ -65,6 +105,24 @@
             runat="server"
             TextMode="Password" />
 
+        <asp:RequiredFieldValidator
+            ID="valConfirmarSenhaObrigatorio"
+            runat="server"
+            ControlToValidate="txtConfirmarSenha"
+            ErrorMessage="O campo Confirmar Senha é obrigatório."
+            Text="*"
+            Display="Static"
+            CssClass="text-danger" />
+
+        <asp:CustomValidator
+            ID="valConfirmarSenhaCoincide"
+            runat="server"
+            ControlToValidate="txtConfirmarSenha"
+            ErrorMessage="As senhas são diferentes."
+            Text="*"
+            Display="Dynamic"
+            CssClass="text-danger" />
+
     </div>
 
     <div>
@@ -72,7 +130,8 @@
         <asp:Button
             ID="btnCriarConta"
             runat="server"
-            Text="Criar conta" />
+            Text="Criar conta"
+            CausesValidation="true" />
 
     </div>
 

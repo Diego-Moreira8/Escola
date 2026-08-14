@@ -4,61 +4,29 @@ Public Class Registrar
 
     Inherits PaginaAutenticada
 
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
-        If IsPostBack Then
-            pnlErro.Visible = False
-            lblErro.Text = String.Empty
-        End If
-
-    End Sub
+    Private Property Repo As UsuarioRepository = New UsuarioRepository
 
     Protected Sub btnCriarConta_Click(sender As Object, e As EventArgs) Handles btnCriarConta.Click
 
-        Dim repo = New UsuarioRepository
-
-        If Not FormularioValido(repo) Then
+        If Not Page.IsValid Then
             Return
         End If
 
-        repo.Criar(txtNomeDeUsuario.Text, txtSenha.Text)
+        Repo.Criar(txtNomeDeUsuario.Text, txtSenha.Text)
 
         Response.Redirect(Rotas.Entrar)
 
     End Sub
 
-    Private Function FormularioValido(ByVal repo As UsuarioRepository) As Boolean
+    Private Sub valNomeDeUsuarioExistente_ServerValidate(source As Object, args As ServerValidateEventArgs) Handles valNomeDeUsuarioExistente.ServerValidate
 
-        Dim nomeDeUsuarioVazio = String.IsNullOrWhiteSpace(txtNomeDeUsuario.Text)
-        Dim senhaVazia = String.IsNullOrWhiteSpace(txtSenha.Text)
-        Dim senhasCoincidem = txtSenha.Text.Equals(txtConfirmarSenha.Text)
+        args.IsValid = Not Repo.Existe(txtNomeDeUsuario.Text)
 
-        If nomeDeUsuarioVazio Then
-            pnlErro.Visible = True
-            lblErro.Text = "Nome de usuário não pode ficar em branco!"
-            Return False
-        End If
+    End Sub
 
-        If senhaVazia Then
-            pnlErro.Visible = True
-            lblErro.Text = "Senha não pode ficar em branco!"
-            Return False
-        End If
+    Private Sub valConfirmarSenhaCoincide_ServerValidate(source As Object, args As ServerValidateEventArgs) Handles valConfirmarSenhaCoincide.ServerValidate
 
-        If Not senhasCoincidem Then
-            pnlErro.Visible = True
-            lblErro.Text = "As senhas não batem!"
-            Return False
-        End If
+        args.IsValid = txtSenha.Text = txtConfirmarSenha.Text
 
-        If repo.Existe(txtNomeDeUsuario.Text) Then
-            pnlErro.Visible = True
-            lblErro.Text = "O nome de usuário já existe!"
-            Return False
-        End If
-
-        Return True
-
-    End Function
-
+    End Sub
 End Class
