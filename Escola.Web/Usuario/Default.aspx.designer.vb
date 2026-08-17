@@ -14,13 +14,13 @@ Option Explicit On
 Partial Public Class _Default3
 
     '''<summary>
-    '''lblResultado control.
+    '''lblSucesso control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblResultado As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblSucesso As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''lblNomeDeUsuario control.
@@ -39,6 +39,33 @@ Partial Public Class _Default3
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtNomeDeUsuario As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''valNomeDeUsuarioObrigatorio control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents valNomeDeUsuarioObrigatorio As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''valNomeDeUsuarioFormato control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents valNomeDeUsuarioFormato As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
+    '''valNomeDeUsuarioExistente control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents valNomeDeUsuarioExistente As Global.System.Web.UI.WebControls.CustomValidator
 
     '''<summary>
     '''btnSalvarAlteracoes control.
