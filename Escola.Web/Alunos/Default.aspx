@@ -20,7 +20,9 @@
     <asp:GridView 
         ID="gdvAlunos" 
         runat="server"
-        AutoGenerateColumns="false" >
+        AutoGenerateColumns="false" 
+        AllowPaging="True" 
+        PageSize="10" >
 
         <Columns>
 
@@ -37,10 +39,19 @@
                 <ItemTemplate>
 
                     <asp:HyperLink
-                        ID="lnkDetalhes"
                         runat="server"
                         Text="Detalhes"
                         NavigateUrl='<%# "~/Alunos/Detalhes.aspx?matricula=" & Eval("Matricula") %>' />
+
+                    <asp:HyperLink
+                        runat="server"
+                        Text="Editar"
+                        NavigateUrl='<%# "~/Alunos/Editar.aspx?matricula=" & Eval("Matricula") %>' />
+
+                    <asp:HyperLink
+                        runat="server"
+                        Text="Apagar"
+                        NavigateUrl='<%# "~/Alunos/Apagar.aspx?matricula=" & Eval("Matricula") %>' />
 
                 </ItemTemplate>
 
