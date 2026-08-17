@@ -4,38 +4,37 @@ Public Class Entrar
 
     Inherits PaginaBase
 
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
-        If IsPostBack Then
-            pnlErro.Visible = False
-            lblErro.Text = String.Empty
-        End If
-
-    End Sub
+    Private Property Repo As UsuarioRepository = New UsuarioRepository
 
     Protected Sub btnEntrar_Click(sender As Object, e As EventArgs) Handles btnEntrar.Click
 
-        Dim repo As New UsuarioRepository
-
-        Dim usuario = repo.BuscarPorNomeDeUsuario(txtNomeDeUsuario.Text)
-
-        If usuario Is Nothing Then
-            pnlErro.Visible = True
-            lblErro.Text = "Nome de usuário não encontrado!"
+        If Not Page.IsValid Then
             Return
         End If
 
-        If Not repo.SenhaCoincide(usuario.NomeDeUsuario, txtSenha.Text) Then
-            pnlErro.Visible = True
-            lblErro.Text = "Senha incorreta!"
-            Return
-        End If
-
+        Dim usuario = Repo.BuscarPorNomeDeUsuario(txtNomeDeUsuario.Text)
         Dim usuarioLogado = New UsuarioLogado With {.Id = usuario.Id, .NomeDeUsuario = usuario.NomeDeUsuario}
 
         AutenticacaoUtils.Autenticar(Session, usuarioLogado)
 
         Response.Redirect(Rotas.Home)
+
+    End Sub
+
+    Private Sub valNomeDeUsuarioExiste_ServerValidate(source As Object, args As ServerValidateEventArgs) Handles valNomeDeUsuarioExiste.ServerValidate
+
+        args.IsValid = Repo.Existe(args.Value)
+
+    End Sub
+
+    Private Sub valSenhaCorreta_ServerValidate(source As Object, args As ServerValidateEventArgs) Handles valSenhaCorreta.ServerValidate
+
+        ' Pula a verificação caso o nome de usuário informado não exista
+        If Not valNomeDeUsuarioExiste.IsValid Then
+            Return
+        End If
+
+        args.IsValid = Repo.SenhaCoincide(txtNomeDeUsuario.Text, args.Value)
 
     End Sub
 

@@ -20,13 +20,13 @@ Public Class Registrar
 
     Private Sub valNomeDeUsuarioExistente_ServerValidate(source As Object, args As ServerValidateEventArgs) Handles valNomeDeUsuarioExistente.ServerValidate
 
-        args.IsValid = Not Repo.Existe(txtNomeDeUsuario.Text)
+        args.IsValid = Not Repo.Existe(args.Value)
 
     End Sub
 
     Private Sub valConfirmarSenhaCoincide_ServerValidate(source As Object, args As ServerValidateEventArgs) Handles valConfirmarSenhaCoincide.ServerValidate
 
-        args.IsValid = txtSenha.Text = txtConfirmarSenha.Text
+        args.IsValid = txtSenha.Text = args.Value
 
     End Sub
 End Class

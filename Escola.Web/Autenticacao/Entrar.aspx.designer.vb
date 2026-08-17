@@ -14,24 +14,6 @@ Option Explicit On
 Partial Public Class Entrar
 
     '''<summary>
-    '''pnlErro control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents pnlErro As Global.System.Web.UI.WebControls.Panel
-
-    '''<summary>
-    '''lblErro control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblErro As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
     '''lblNomeDeUsuario control.
     '''</summary>
     '''<remarks>
@@ -50,6 +32,24 @@ Partial Public Class Entrar
     Protected WithEvents txtNomeDeUsuario As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''valNomeDeUsuarioObrigatorio control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents valNomeDeUsuarioObrigatorio As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''valNomeDeUsuarioExiste control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents valNomeDeUsuarioExiste As Global.System.Web.UI.WebControls.CustomValidator
+
+    '''<summary>
     '''lblSenha control.
     '''</summary>
     '''<remarks>
@@ -66,6 +66,24 @@ Partial Public Class Entrar
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtSenha As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''valSenhaObrigatoria control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents valSenhaObrigatoria As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''valSenhaCorreta control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents valSenhaCorreta As Global.System.Web.UI.WebControls.CustomValidator
 
     '''<summary>
     '''btnEntrar control.

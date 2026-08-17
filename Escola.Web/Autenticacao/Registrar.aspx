@@ -12,7 +12,6 @@
     <h1>Registrar</h1>
 
     <asp:ValidationSummary
-        ID="valResumo"
         runat="server"
         CssClass="alert alert-danger" />
 

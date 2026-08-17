@@ -11,17 +11,9 @@
 
     <h1>Entrar</h1>
 
-    <asp:Panel 
-        ID="pnlErro"
+    <asp:ValidationSummary
         runat="server"
-        Visible="false">
-
-        <asp:Label
-            ID="lblErro"
-            runat="server" />
-
-    </asp:Panel>
-
+        CssClass="alert alert-danger" />
 
     <div>
 
@@ -35,6 +27,24 @@
             ID="txtNomeDeUsuario"
             runat="server"
             autofocus="true" />
+
+        <asp:RequiredFieldValidator
+            ID="valNomeDeUsuarioObrigatorio"
+            runat="server"
+            ControlToValidate="txtNomeDeUsuario"
+            ErrorMessage="Informe um nome de usuário."
+            Text="*"
+            Display="Dynamic"
+            CssClass="text-danger" />
+
+        <asp:CustomValidator
+            ID="valNomeDeUsuarioExiste"
+            runat="server"
+            ControlToValidate="txtNomeDeUsuario"
+            ErrorMessage="O nome de usuário informado não existe."
+            Text="*"
+            Display="Dynamic"
+            CssClass="text-danger" />
 
     </div>
     
@@ -50,6 +60,24 @@
             ID="txtSenha"
             runat="server"
             TextMode="Password" />
+
+        <asp:RequiredFieldValidator
+            ID="valSenhaObrigatoria"
+            runat="server"
+            ControlToValidate="txtSenha"
+            ErrorMessage="Informe uma senha."
+            Text="*"
+            Display="Dynamic"
+            CssClass="text-danger" />
+
+        <asp:CustomValidator
+            ID="valSenhaCorreta"
+            runat="server"
+            ControlToValidate="txtSenha"
+            ErrorMessage="Senha incorreta."
+            Text="*"
+            Display="Dynamic"
+            CssClass="text-danger" />
 
     </div>
 
