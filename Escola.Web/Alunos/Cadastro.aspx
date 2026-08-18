@@ -16,15 +16,21 @@
 
     <h1>Cadastrar Aluno</h1>
 
-    <uc:AlunoForm Id="ucAlunoFormNovo" RunAt="server"/>
+    <asp:Panel
+        runat="server"
+        DefaultButton="btnSalvarNovoAluno">
 
-    <div>
+        <uc:AlunoForm Id="ucAlunoFormNovo" RunAt="server"/>
+
+        <div>
     
-        <asp:Button 
-            ID="btnSalvarNovoAluno" 
-            runat="server" 
-            Text="Salvar" />
+            <asp:Button 
+                ID="btnSalvarNovoAluno" 
+                runat="server" 
+                Text="Salvar" />
+    
+        </div>
 
-    </div>
+    </asp:Panel>
 
 </asp:Content>

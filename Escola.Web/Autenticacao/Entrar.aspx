@@ -11,84 +11,90 @@
 
     <h1>Entrar</h1>
 
-    <asp:ValidationSummary
+    <asp:Panel
         runat="server"
-        CssClass="alert alert-danger" />
+        DefaultButton="btnEntrar">
 
-    <div>
-
-        <asp:Label 
-            ID="lblNomeDeUsuario"
+        <asp:ValidationSummary
             runat="server"
-            Text="Nome de usuário" 
-            AssociatedControlID="txtNomeDeUsuario" />
+            CssClass="alert alert-danger" />
 
-        <asp:TextBox
-            ID="txtNomeDeUsuario"
-            runat="server"
-            autofocus="true" />
+        <div>
 
-        <asp:RequiredFieldValidator
-            ID="valNomeDeUsuarioObrigatorio"
-            runat="server"
-            ControlToValidate="txtNomeDeUsuario"
-            ErrorMessage="Informe um nome de usuário."
-            Text="*"
-            Display="Dynamic"
-            CssClass="text-danger" />
+            <asp:Label 
+                ID="lblNomeDeUsuario"
+                runat="server"
+                Text="Nome de usuário" 
+                AssociatedControlID="txtNomeDeUsuario" />
 
-        <asp:CustomValidator
-            ID="valNomeDeUsuarioExiste"
-            runat="server"
-            ControlToValidate="txtNomeDeUsuario"
-            ErrorMessage="O nome de usuário informado não existe."
-            Text="*"
-            Display="Dynamic"
-            CssClass="text-danger" />
+            <asp:TextBox
+                ID="txtNomeDeUsuario"
+                runat="server"
+                autofocus="true" />
 
-    </div>
+            <asp:RequiredFieldValidator
+                ID="valNomeDeUsuarioObrigatorio"
+                runat="server"
+                ControlToValidate="txtNomeDeUsuario"
+                ErrorMessage="Informe um nome de usuário."
+                Text="*"
+                Display="Dynamic"
+                CssClass="text-danger" />
+
+            <asp:CustomValidator
+                ID="valNomeDeUsuarioExiste"
+                runat="server"
+                ControlToValidate="txtNomeDeUsuario"
+                ErrorMessage="O nome de usuário informado não existe."
+                Text="*"
+                Display="Dynamic"
+                CssClass="text-danger" />
+
+        </div>
     
-    <div>
+        <div>
 
-        <asp:Label 
-            ID="lblSenha"
-            runat="server"
-            Text="Senha" 
-            AssociatedControlID="txtSenha" />
+            <asp:Label 
+                ID="lblSenha"
+                runat="server"
+                Text="Senha" 
+                AssociatedControlID="txtSenha" />
 
-        <asp:TextBox 
-            ID="txtSenha"
-            runat="server"
-            TextMode="Password" />
+            <asp:TextBox 
+                ID="txtSenha"
+                runat="server"
+                TextMode="Password" />
 
-        <asp:RequiredFieldValidator
-            ID="valSenhaObrigatoria"
-            runat="server"
-            ControlToValidate="txtSenha"
-            ErrorMessage="Informe uma senha."
-            Text="*"
-            Display="Dynamic"
-            CssClass="text-danger" />
+            <asp:RequiredFieldValidator
+                ID="valSenhaObrigatoria"
+                runat="server"
+                ControlToValidate="txtSenha"
+                ErrorMessage="Informe uma senha."
+                Text="*"
+                Display="Dynamic"
+                CssClass="text-danger" />
 
-        <asp:CustomValidator
-            ID="valSenhaCorreta"
-            runat="server"
-            ControlToValidate="txtSenha"
-            ErrorMessage="Senha incorreta."
-            Text="*"
-            Display="Dynamic"
-            CssClass="text-danger" />
+            <asp:CustomValidator
+                ID="valSenhaCorreta"
+                runat="server"
+                ControlToValidate="txtSenha"
+                ErrorMessage="Senha incorreta."
+                Text="*"
+                Display="Dynamic"
+                CssClass="text-danger" />
 
-    </div>
+        </div>
 
-    <div>
+        <div>
 
-        <asp:Button
-            ID="btnEntrar"
-            runat="server"
-            Text="Entrar" />
+            <asp:Button
+                ID="btnEntrar"
+                runat="server"
+                Text="Entrar" />
 
-    </div>
+        </div>
+
+    </asp:Panel>
 
     <p>
         Não tem uma conta? 

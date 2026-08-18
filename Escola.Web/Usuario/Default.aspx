@@ -11,67 +11,73 @@
 
     <h1>Minha Conta</h1>
 
-    <asp:Label 
-        ID="lblSucesso"
+    <asp:Panel
         runat="server"
-        Text="Dados salvos!"
-        Visible="false"
-        CssClass="badge bg-success" />
-
-    <asp:ValidationSummary
-        runat="server"
-        CssClass="alert alert-danger" />
-
-    <div>
+        DefaultButton="btnSalvarAlteracoes">
 
         <asp:Label 
-            ID="lblNomeDeUsuario"
+            ID="lblSucesso"
             runat="server"
-            Text="Nome de usuário" 
-            AssociatedControlID="txtNomeDeUsuario" />
+            Text="Dados salvos!"
+            Visible="false"
+            CssClass="badge bg-success" />
 
-        <asp:TextBox
-            ID="txtNomeDeUsuario"
-            runat="server" />
-
-        <asp:RequiredFieldValidator
-            ID="valNomeDeUsuarioObrigatorio"
+        <asp:ValidationSummary
             runat="server"
-            ControlToValidate="txtNomeDeUsuario"
-            ErrorMessage="Informe um nome de usuário."
-            Text="*"
-            Display="Static"
-            CssClass="text-danger" />
+            CssClass="alert alert-danger" />
 
-        <asp:RegularExpressionValidator
-            ID="valNomeDeUsuarioFormato"
-            runat="server"
-            ControlToValidate="txtNomeDeUsuario"
-            ValidationExpression="^[a-z.]{3,50}$"
-            ErrorMessage="O nome de usuário deve conter apenas letras e pontos e ter entre 3 e 50 caracteres."
-            Text="*"
-            Display="Dynamic"
-            CssClass="text-danger" />
+        <div>
 
-        <asp:CustomValidator
-            ID="valNomeDeUsuarioExistente"
-            runat="server"
-            ControlToValidate="txtNomeDeUsuario"
-            ErrorMessage="Nome de usuário já existe."
-            Text="*"
-            Display="Dynamic"
-            CssClass="text-danger" />
+            <asp:Label 
+                ID="lblNomeDeUsuario"
+                runat="server"
+                Text="Nome de usuário" 
+                AssociatedControlID="txtNomeDeUsuario" />
 
-    </div>
+            <asp:TextBox
+                ID="txtNomeDeUsuario"
+                runat="server" />
 
-    <div>
+            <asp:RequiredFieldValidator
+                ID="valNomeDeUsuarioObrigatorio"
+                runat="server"
+                ControlToValidate="txtNomeDeUsuario"
+                ErrorMessage="Informe um nome de usuário."
+                Text="*"
+                Display="Static"
+                CssClass="text-danger" />
 
-        <asp:Button 
-            ID="btnSalvarAlteracoes"
-            runat="server"
-            Text="Salvar Alterações" />
+            <asp:RegularExpressionValidator
+                ID="valNomeDeUsuarioFormato"
+                runat="server"
+                ControlToValidate="txtNomeDeUsuario"
+                ValidationExpression="^[a-z.]{3,50}$"
+                ErrorMessage="O nome de usuário deve conter apenas letras e pontos e ter entre 3 e 50 caracteres."
+                Text="*"
+                Display="Dynamic"
+                CssClass="text-danger" />
 
-    </div>
+            <asp:CustomValidator
+                ID="valNomeDeUsuarioExistente"
+                runat="server"
+                ControlToValidate="txtNomeDeUsuario"
+                ErrorMessage="Nome de usuário já existe."
+                Text="*"
+                Display="Dynamic"
+                CssClass="text-danger" />
+
+        </div>
+
+        <div>
+
+            <asp:Button 
+                ID="btnSalvarAlteracoes"
+                runat="server"
+                Text="Salvar Alterações" />
+
+        </div>
+
+    </asp:Panel>
 
     <asp:HyperLink 
         runat="server" 

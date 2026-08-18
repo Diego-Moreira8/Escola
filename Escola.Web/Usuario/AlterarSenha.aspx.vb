@@ -12,7 +12,7 @@ Public Class AlterarSenha
 
     End Sub
 
-    Protected Sub btnEnviarAlteracao_Click(sender As Object, e As EventArgs) Handles btnEnviarAlteracao.Click
+    Protected Sub btnSalvarAlteracoes_Click(sender As Object, e As EventArgs) Handles btnSalvarAlteracoes.Click
 
         If Not Page.IsValid Then
             Return

@@ -16,18 +16,24 @@
 
     <h1>Editar Aluno</h1>
 
-    <uc:AlunoForm 
-        Id="ucAlunoFormEditar" 
-        RunAt="server" />
-
-    <asp:Button 
-        ID="btnSalvarAlteracoes" 
-        runat="server" 
-        Text="Salvar alterações" />
-
-    <asp:HyperLink
-        ID="lnkCancelar"
+    <asp:Panel
         runat="server"
-        Text="Cancelar" />
+        DefaultButton="btnSalvarAlteracoes">
+
+        <uc:AlunoForm 
+            Id="ucAlunoFormEditar" 
+            RunAt="server" />
+
+        <asp:Button 
+            ID="btnSalvarAlteracoes" 
+            runat="server" 
+            Text="Salvar alterações" />
+
+        <asp:HyperLink
+            ID="lnkCancelar"
+            runat="server"
+            Text="Cancelar" />
+
+    </asp:Panel>
 
 </asp:Content>

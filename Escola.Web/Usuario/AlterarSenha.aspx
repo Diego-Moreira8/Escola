@@ -11,117 +11,123 @@
 
     <h1>Alterar Senha</h1>
 
-    <asp:Label 
-        ID="lblSucesso"
+    <asp:Panel
         runat="server"
-        Text="Senha alterada com sucesso!"
-        Visible="false"
-        CssClass="badge bg-success" />
+        DefaultButton="btnSalvarAlteracoes">
 
-    <asp:ValidationSummary
-        runat="server"
-        CssClass="alert alert-danger" />
-
-    <div>
-
-        <asp:Label
+        <asp:Label 
+            ID="lblSucesso"
             runat="server"
-            Text="Senha atual"
-            AssociatedControlID="txtSenhaAtual" />
+            Text="Senha alterada com sucesso!"
+            Visible="false"
+            CssClass="badge bg-success" />
 
-        <asp:TextBox
-            ID="txtSenhaAtual"
+        <asp:ValidationSummary
             runat="server"
-            TextMode="Password" />
+            CssClass="alert alert-danger" />
 
-        <asp:RequiredFieldValidator
-            ID="valSenhaAtualObrigatoria"
-            runat="server"
-            ControlToValidate="txtSenhaAtual"
-            ErrorMessage="O campo &quot;Senha atual&quot; é obrigatório."
-            Text="*"
-            Display="Dynamic"
-            CssClass="text-danger" />
+        <div>
 
-        <asp:CustomValidator
-            ID="valSenhaAtualCorreta"
-            runat="server"
-            ControlToValidate="txtSenhaAtual"
-            ErrorMessage="A senha atual informada está incorreta."
-            Text="*"
-            Display="Dynamic"
-            CssClass="text-danger" />
+            <asp:Label
+                runat="server"
+                Text="Senha atual"
+                AssociatedControlID="txtSenhaAtual" />
 
-    </div>
+            <asp:TextBox
+                ID="txtSenhaAtual"
+                runat="server"
+                TextMode="Password" />
 
-    <div>
+            <asp:RequiredFieldValidator
+                ID="valSenhaAtualObrigatoria"
+                runat="server"
+                ControlToValidate="txtSenhaAtual"
+                ErrorMessage="O campo &quot;Senha atual&quot; é obrigatório."
+                Text="*"
+                Display="Dynamic"
+                CssClass="text-danger" />
 
-        <asp:Label
-            runat="server"
-            Text="Nova senha"
-            AssociatedControlID="txtNovaSenha" />
+            <asp:CustomValidator
+                ID="valSenhaAtualCorreta"
+                runat="server"
+                ControlToValidate="txtSenhaAtual"
+                ErrorMessage="A senha atual informada está incorreta."
+                Text="*"
+                Display="Dynamic"
+                CssClass="text-danger" />
 
-        <asp:TextBox
-            ID="txtNovaSenha"
-            runat="server"
-            TextMode="Password" />
+        </div>
 
-        <asp:RequiredFieldValidator
-            ID="valNovaSenhaObrigatoria"
-            runat="server"
-            ControlToValidate="txtNovaSenha"
-            ErrorMessage="O campo &quot;Nova senha&quot; é obrigatório."
-            Text="*"
-            Display="Dynamic"
-            CssClass="text-danger" />
+        <div>
 
-        <asp:RegularExpressionValidator
-            ID="valNovaSenhaFormato"
-            runat="server"
-            ControlToValidate="txtNovaSenha"
-            ValidationExpression="^.{8,50}$"
-            ErrorMessage="A senha precisa ter entre 8 e 50 caracteres."
-            Text="*"
-            Display="Dynamic"
-            CssClass="text-danger" />
+            <asp:Label
+                runat="server"
+                Text="Nova senha"
+                AssociatedControlID="txtNovaSenha" />
 
-    </div>
+            <asp:TextBox
+                ID="txtNovaSenha"
+                runat="server"
+                TextMode="Password" />
 
-    <div>
+            <asp:RequiredFieldValidator
+                ID="valNovaSenhaObrigatoria"
+                runat="server"
+                ControlToValidate="txtNovaSenha"
+                ErrorMessage="O campo &quot;Nova senha&quot; é obrigatório."
+                Text="*"
+                Display="Dynamic"
+                CssClass="text-danger" />
 
-        <asp:Label
-            runat="server"
-            Text="Repita a nova senha"
-            AssociatedControlID="txtNovaSenhaConfirmacao" />
+            <asp:RegularExpressionValidator
+                ID="valNovaSenhaFormato"
+                runat="server"
+                ControlToValidate="txtNovaSenha"
+                ValidationExpression="^.{8,50}$"
+                ErrorMessage="A senha precisa ter entre 8 e 50 caracteres."
+                Text="*"
+                Display="Dynamic"
+                CssClass="text-danger" />
 
-        <asp:TextBox
-            ID="txtNovaSenhaConfirmacao"
-            runat="server"
-            TextMode="Password" />
+        </div>
 
-        <asp:CustomValidator
-            ID="valSenhasCoincidem"
-            runat="server"
-            ControlToValidate="txtNovaSenhaConfirmacao"
-            ErrorMessage="As senhas não coincidem."
-            Text="*"
-            Display="Dynamic"
-            CssClass="text-danger" />
+        <div>
 
-    </div>
+            <asp:Label
+                runat="server"
+                Text="Repita a nova senha"
+                AssociatedControlID="txtNovaSenhaConfirmacao" />
 
-    <div>
+            <asp:TextBox
+                ID="txtNovaSenhaConfirmacao"
+                runat="server"
+                TextMode="Password" />
 
-        <asp:Button
-            ID="btnEnviarAlteracao"
-            runat="server"
-            Text="Salvar nova senha" />
+            <asp:CustomValidator
+                ID="valSenhasCoincidem"
+                runat="server"
+                ControlToValidate="txtNovaSenhaConfirmacao"
+                ErrorMessage="As senhas não coincidem."
+                Text="*"
+                Display="Dynamic"
+                CssClass="text-danger" />
 
-        <asp:HyperLink
-            runat="server"
-            NavigateUrl="~/Usuario/Default.aspx"
-            Text="Voltar" />
+        </div>
+
+        <div>
+
+            <asp:Button
+                ID="btnSalvarAlteracoes"
+                runat="server"
+                Text="Salvar nova senha" />
+
+            <asp:HyperLink
+                runat="server"
+                NavigateUrl="~/Usuario/Default.aspx"
+                Text="Voltar" />
     
-    </div>
+        </div>
+
+    </asp:Panel>
 
 </asp:Content>

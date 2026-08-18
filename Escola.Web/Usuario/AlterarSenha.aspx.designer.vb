@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class AlterarSenha
 
     '''<summary>
+    '''pnlFormUsuario control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnlFormUsuario As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
     '''lblSucesso control.
     '''</summary>
     '''<remarks>
@@ -95,11 +104,11 @@ Partial Public Class AlterarSenha
     Protected WithEvents valSenhasCoincidem As Global.System.Web.UI.WebControls.CustomValidator
 
     '''<summary>
-    '''btnEnviarAlteracao control.
+    '''btnSalvarAlteracoes control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnEnviarAlteracao As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnSalvarAlteracoes As Global.System.Web.UI.WebControls.Button
 End Class
