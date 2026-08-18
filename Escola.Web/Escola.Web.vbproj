@@ -240,6 +240,7 @@
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Utils\Ambiente.vb" />
     <Compile Include="Utils\AutenticacaoUtils.vb" />
     <Compile Include="Utils\Rotas.vb" />
     <Compile Include="Utils\UrlUtils.vb" />
