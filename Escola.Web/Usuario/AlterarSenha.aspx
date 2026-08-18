@@ -11,9 +11,16 @@
 
     <h1>Alterar Senha</h1>
 
-    <asp:Label
-        ID="lblResultado"
-        runat="server" />
+    <asp:Label 
+        ID="lblSucesso"
+        runat="server"
+        Text="Senha alterada com sucesso!"
+        Visible="false"
+        CssClass="badge bg-success" />
+
+    <asp:ValidationSummary
+        runat="server"
+        CssClass="alert alert-danger" />
 
     <div>
 
@@ -26,6 +33,24 @@
             ID="txtSenhaAtual"
             runat="server"
             TextMode="Password" />
+
+        <asp:RequiredFieldValidator
+            ID="valSenhaAtualObrigatoria"
+            runat="server"
+            ControlToValidate="txtSenhaAtual"
+            ErrorMessage="O campo &quot;Senha atual&quot; é obrigatório."
+            Text="*"
+            Display="Dynamic"
+            CssClass="text-danger" />
+
+        <asp:CustomValidator
+            ID="valSenhaAtualCorreta"
+            runat="server"
+            ControlToValidate="txtSenhaAtual"
+            ErrorMessage="A senha atual informada está incorreta."
+            Text="*"
+            Display="Dynamic"
+            CssClass="text-danger" />
 
     </div>
 
@@ -41,6 +66,25 @@
             runat="server"
             TextMode="Password" />
 
+        <asp:RequiredFieldValidator
+            ID="valNovaSenhaObrigatoria"
+            runat="server"
+            ControlToValidate="txtNovaSenha"
+            ErrorMessage="O campo &quot;Nova senha&quot; é obrigatório."
+            Text="*"
+            Display="Dynamic"
+            CssClass="text-danger" />
+
+        <asp:RegularExpressionValidator
+            ID="valNovaSenhaFormato"
+            runat="server"
+            ControlToValidate="txtNovaSenha"
+            ValidationExpression="^.{8,50}$"
+            ErrorMessage="A senha precisa ter entre 8 e 50 caracteres."
+            Text="*"
+            Display="Dynamic"
+            CssClass="text-danger" />
+
     </div>
 
     <div>
@@ -55,6 +99,15 @@
             runat="server"
             TextMode="Password" />
 
+        <asp:CustomValidator
+            ID="valSenhasCoincidem"
+            runat="server"
+            ControlToValidate="txtNovaSenhaConfirmacao"
+            ErrorMessage="As senhas não coincidem."
+            Text="*"
+            Display="Dynamic"
+            CssClass="text-danger" />
+
     </div>
 
     <div>
@@ -67,7 +120,7 @@
         <asp:HyperLink
             runat="server"
             NavigateUrl="~/Usuario/Default.aspx"
-            Text="Cancelar" />
+            Text="Voltar" />
     
     </div>
 

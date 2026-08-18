@@ -4,31 +4,35 @@ Public Class AlterarSenha
 
     Inherits PaginaAutenticada
 
+    Private Property Repo As UsuarioRepository = New UsuarioRepository
+
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+        lblSucesso.Visible = False
 
     End Sub
 
     Protected Sub btnEnviarAlteracao_Click(sender As Object, e As EventArgs) Handles btnEnviarAlteracao.Click
 
-        Dim repo As New UsuarioRepository
-
-        Dim senhaAtual = txtSenhaAtual.Text
-        Dim novaSenha = txtNovaSenha.Text
-        Dim confirmacaoDeSenha = txtNovaSenhaConfirmacao.Text
-
-        If Not repo.SenhaCoincide(Usuario.NomeDeUsuario, senhaAtual) Then
-            lblResultado.Text = "A senha atual informada está incorreta"
+        If Not Page.IsValid Then
             Return
         End If
 
-        If novaSenha <> confirmacaoDeSenha Then
-            lblResultado.Text = "As senhas não coincidem"
-            Return
-        End If
+        Repo.AtualizarSenha(Usuario.NomeDeUsuario, txtNovaSenha.Text)
 
-        repo.AtualizarSenha(Usuario.NomeDeUsuario, txtNovaSenha.Text)
+        lblSucesso.Visible = True
 
-        Response.Redirect(Rotas.Usuario)
+    End Sub
+
+    Private Sub valSenhaAtualCorreta_ServerValidate(source As Object, args As ServerValidateEventArgs) Handles valSenhaAtualCorreta.ServerValidate
+
+        args.IsValid = Repo.SenhaCoincide(Usuario.NomeDeUsuario, args.Value)
+
+    End Sub
+
+    Private Sub valSenhasCoincidem_ServerValidate(source As Object, args As ServerValidateEventArgs) Handles valSenhasCoincidem.ServerValidate
+
+        args.IsValid = txtNovaSenha.Text = args.Value
 
     End Sub
 

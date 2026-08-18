@@ -14,13 +14,13 @@ Option Explicit On
 Partial Public Class AlterarSenha
 
     '''<summary>
-    '''lblResultado control.
+    '''lblSucesso control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblResultado As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblSucesso As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''txtSenhaAtual control.
@@ -32,6 +32,24 @@ Partial Public Class AlterarSenha
     Protected WithEvents txtSenhaAtual As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''valSenhaAtualObrigatoria control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents valSenhaAtualObrigatoria As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''valSenhaAtualCorreta control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents valSenhaAtualCorreta As Global.System.Web.UI.WebControls.CustomValidator
+
+    '''<summary>
     '''txtNovaSenha control.
     '''</summary>
     '''<remarks>
@@ -41,6 +59,24 @@ Partial Public Class AlterarSenha
     Protected WithEvents txtNovaSenha As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''valNovaSenhaObrigatoria control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents valNovaSenhaObrigatoria As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''valNovaSenhaFormato control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents valNovaSenhaFormato As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
     '''txtNovaSenhaConfirmacao control.
     '''</summary>
     '''<remarks>
@@ -48,6 +84,15 @@ Partial Public Class AlterarSenha
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtNovaSenhaConfirmacao As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''valSenhasCoincidem control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents valSenhasCoincidem As Global.System.Web.UI.WebControls.CustomValidator
 
     '''<summary>
     '''btnEnviarAlteracao control.
