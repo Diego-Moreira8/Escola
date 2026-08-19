@@ -19,6 +19,10 @@ UPDATE Usuario
 SET EhAdmin = 1
 WHERE NomeDeUsuario = 'diego.moreira';
 
+UPDATE Usuario
+SET ContagemSenhaIncorreta = 0
+WHERE NomeDeUsuario = 'diego.moreira';
+
 SELECT * FROM Usuario;
 
 

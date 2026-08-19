@@ -75,6 +75,18 @@ Public Class UsuarioRepository
 
     End Function
 
+    Public Function BuscarContagemSenhaIncorreta(ByVal nomeDeUsuario As String) As Integer
+
+        Using db As New EscolaEntities
+            Dim usuario = (From u In db.Usuario
+                           Where u.NomeDeUsuario = nomeDeUsuario
+                           Select u).First()
+
+            Return usuario.ContagemSenhaIncorreta
+        End Using
+
+    End Function
+
 #End Region
 
 #Region "Update"
@@ -119,14 +131,36 @@ Public Class UsuarioRepository
 
     End Sub
 
-    Public Sub IncrementarContagemSenhaIncorreta(ByVal nomeDeUsuario)
+    Public Function IncrementarContagemSenhaIncorreta(ByVal nomeDeUsuario As String) As Integer
 
         Using db As New EscolaEntities
             Dim usuario = (From u In db.Usuario
                            Where u.NomeDeUsuario = nomeDeUsuario
                            Select u).First()
 
-            usuario.ContagemSenhaIncorreta += 1
+            Dim contagemIncrementada = usuario.ContagemSenhaIncorreta + 1
+
+            usuario.ContagemSenhaIncorreta = contagemIncrementada
+
+            db.SaveChanges()
+
+            Return contagemIncrementada
+        End Using
+
+    End Function
+
+    Public Sub RedefinirContagemSenhaIncorreta(ByVal nomeDeUsuario As String)
+
+        Using db As New EscolaEntities
+            Dim usuario = (From u In db.Usuario
+                           Where u.NomeDeUsuario = nomeDeUsuario
+                           Select u).First()
+
+            If usuario.ContagemSenhaIncorreta = 0 Then
+                Return
+            End If
+
+            usuario.ContagemSenhaIncorreta = 0
 
             db.SaveChanges()
         End Using

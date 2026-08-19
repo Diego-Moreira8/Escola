@@ -12,6 +12,8 @@ Public Class Entrar
             Return
         End If
 
+        Repo.RedefinirContagemSenhaIncorreta(txtNomeDeUsuario.Text)
+
         Dim usuario = Repo.BuscarPorNomeDeUsuario(txtNomeDeUsuario.Text)
         Dim usuarioLogado = New UsuarioLogado(usuario)
 
@@ -34,7 +36,34 @@ Public Class Entrar
             Return
         End If
 
-        args.IsValid = Repo.SenhaCoincide(txtNomeDeUsuario.Text, args.Value)
+        Dim limiteSenhaIncorreta = CInt(ConfigurationManager.AppSettings("LimiteSenhaIncorreta"))
+        Dim contagemSenhaIncorreta = Repo.BuscarContagemSenhaIncorreta(txtNomeDeUsuario.Text)
+        Dim usuarioBloqueado = contagemSenhaIncorreta >= limiteSenhaIncorreta
+
+        If usuarioBloqueado Then
+            valSenhaCorreta.ErrorMessage = "Usuário bloqueado. Contate um administrador do sistema."
+            args.IsValid = False
+            Return
+        End If
+
+        Dim senhaCorreta = Repo.SenhaCoincide(txtNomeDeUsuario.Text, args.Value)
+
+        If Not senhaCorreta Then
+            contagemSenhaIncorreta = Repo.IncrementarContagemSenhaIncorreta(txtNomeDeUsuario.Text)
+
+            Dim tentativasRestantes = limiteSenhaIncorreta - contagemSenhaIncorreta
+
+            valSenhaCorreta.ErrorMessage = If(
+                tentativasRestantes > 0,
+                $"Senha incorreta. Tentativas restantes: {tentativasRestantes}",
+                "Senha incorreta. Usuário bloqueado, contate um administrador do sistema."
+            )
+
+            args.IsValid = False
+            Return
+        End If
+
+        args.IsValid = True
 
     End Sub
 
