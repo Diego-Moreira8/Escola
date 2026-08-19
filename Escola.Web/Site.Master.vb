@@ -14,8 +14,11 @@
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
         If AutenticacaoUtils.EstaAutenticado(Session) Then
+            Dim usuarioLogado As UsuarioLogado = AutenticacaoUtils.Usuario(Session)
+
             pnlInfoDoUsuario.Visible = True
-            TextoLinkUsuario = AutenticacaoUtils.Usuario(Session).NomeDeUsuario
+            TextoLinkUsuario = usuarioLogado.NomeDeUsuario
+            lnkPainelAdmin.Visible = usuarioLogado.EhAdmin
         End If
 
     End Sub

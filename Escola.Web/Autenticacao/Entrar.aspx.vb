@@ -13,7 +13,7 @@ Public Class Entrar
         End If
 
         Dim usuario = Repo.BuscarPorNomeDeUsuario(txtNomeDeUsuario.Text)
-        Dim usuarioLogado = New UsuarioLogado With {.Id = usuario.Id, .NomeDeUsuario = usuario.NomeDeUsuario}
+        Dim usuarioLogado = New UsuarioLogado(usuario)
 
         AutenticacaoUtils.Autenticar(Session, usuarioLogado)
 

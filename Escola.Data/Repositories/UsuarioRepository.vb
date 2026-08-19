@@ -119,6 +119,20 @@ Public Class UsuarioRepository
 
     End Sub
 
+    Public Sub IncrementarContagemSenhaIncorreta(ByVal nomeDeUsuario)
+
+        Using db As New EscolaEntities
+            Dim usuario = (From u In db.Usuario
+                           Where u.NomeDeUsuario = nomeDeUsuario
+                           Select u).First()
+
+            usuario.ContagemSenhaIncorreta += 1
+
+            db.SaveChanges()
+        End Using
+
+    End Sub
+
 #End Region
 
 #Region "Delete"

@@ -21,6 +21,8 @@
           <Property Name="NomeDeUsuario" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="HashSenha" Type="varbinary" MaxLength="64" Nullable="false" />
           <Property Name="SaltSenha" Type="varbinary" MaxLength="32" Nullable="false" />
+          <Property Name="EhAdmin" Type="bit" Nullable="false" />
+          <Property Name="ContagemSenhaIncorreta" Type="int" Nullable="false" />
         </EntityType>
         <EntityContainer Name="EscolaModelStoreContainer">
           <EntitySet Name="Aluno" EntityType="Self.Aluno" Schema="dbo" store:Type="Tables" />
@@ -50,6 +52,8 @@
           <Property Name="NomeDeUsuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="HashSenha" Type="Binary" Nullable="false" MaxLength="64" FixedLength="false" />
           <Property Name="SaltSenha" Type="Binary" Nullable="false" MaxLength="32" FixedLength="false" />
+          <Property Name="EhAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="ContagemSenhaIncorreta" Type="Int32" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -69,6 +73,8 @@
           <EntitySetMapping Name="Usuario">
             <EntityTypeMapping TypeName="EscolaModel.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="ContagemSenhaIncorreta" ColumnName="ContagemSenhaIncorreta" />
+                <ScalarProperty Name="EhAdmin" ColumnName="EhAdmin" />
                 <ScalarProperty Name="SaltSenha" ColumnName="SaltSenha" />
                 <ScalarProperty Name="HashSenha" ColumnName="HashSenha" />
                 <ScalarProperty Name="NomeDeUsuario" ColumnName="NomeDeUsuario" />

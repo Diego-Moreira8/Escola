@@ -50,6 +50,14 @@
                         Visible="false" >
 
                         <asp:HyperLink 
+                            ID="lnkPainelAdmin"
+                            runat="server"
+                            NavigateUrl="~/Admin/Default.aspx"
+                            Text="ADMIN"
+                            Visible="false"
+                            CssClass="badge bg-success" />
+
+                        <asp:HyperLink 
                             ID="lnkNomeDeUsuario" 
                             NavigateUrl="~/Usuario/Default.aspx"
                             runat="server"

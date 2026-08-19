@@ -50,6 +50,15 @@ Partial Public Class Site1
     Protected WithEvents pnlInfoDoUsuario As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
+    '''lnkPainelAdmin control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lnkPainelAdmin As Global.System.Web.UI.WebControls.HyperLink
+
+    '''<summary>
     '''lnkNomeDeUsuario control.
     '''</summary>
     '''<remarks>

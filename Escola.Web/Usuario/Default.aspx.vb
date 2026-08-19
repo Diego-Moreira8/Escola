@@ -56,10 +56,7 @@ Public Class _Default3
     Private Sub Reautenticar(novoNomeDeUsuario As String)
 
         Dim usuarioAtualizado = Repo.BuscarPorNomeDeUsuario(novoNomeDeUsuario)
-        Dim usuarioLogadoAtualizado = New UsuarioLogado With {
-            .Id = usuarioAtualizado.Id,
-            .NomeDeUsuario = usuarioAtualizado.NomeDeUsuario
-        }
+        Dim usuarioLogadoAtualizado = New UsuarioLogado(usuarioAtualizado)
 
         AutenticacaoUtils.Autenticar(Session, usuarioLogadoAtualizado)
 

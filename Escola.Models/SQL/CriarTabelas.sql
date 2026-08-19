@@ -1,12 +1,23 @@
-﻿--DROP TABLE Usuario;
+﻿DROP TABLE Usuario;
 
 CREATE TABLE Usuario
 (
     Id INT PRIMARY KEY IDENTITY(1,1),
     NomeDeUsuario NVARCHAR(50) NOT NULL UNIQUE,
     HashSenha VARBINARY(64) NOT NULL,
-    SaltSenha VARBINARY(32) NOT NULL
+    SaltSenha VARBINARY(32) NOT NULL,
+    EhAdmin BIT NOT NULL DEFAULT 0,
+    ContagemSenhaIncorreta INT NOT NULL DEFAULT 0
 );
+
+/*
+criar gerador de senhas para ele
+mostra lista de usuários bloqueados de cara
+*/
+
+UPDATE Usuario
+SET EhAdmin = 1
+WHERE NomeDeUsuario = 'diego.moreira';
 
 SELECT * FROM Usuario;
 

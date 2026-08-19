@@ -26,10 +26,7 @@ Public Class Global_asax
             Try
                 Dim repo = New UsuarioRepository
                 Dim usuarioTeste = repo.BuscarPorNomeDeUsuario(ConfigurationManager.AppSettings("UsuarioTeste"))
-                Dim usuarioLogado = New UsuarioLogado With {
-                    .Id = usuarioTeste.Id,
-                    .NomeDeUsuario = usuarioTeste.NomeDeUsuario
-                }
+                Dim usuarioLogado = New UsuarioLogado(usuarioTeste)
 
                 AutenticacaoUtils.Autenticar(Session, usuarioLogado)
             Catch ex As Exception

@@ -15,5 +15,7 @@ Partial Public Class Usuario
     Public Property NomeDeUsuario As String
     Public Property HashSenha As Byte()
     Public Property SaltSenha As Byte()
+    Public Property EhAdmin As Boolean
+    Public Property ContagemSenhaIncorreta As Integer
 
 End Class
